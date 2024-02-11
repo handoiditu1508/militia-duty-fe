@@ -1,0 +1,6 @@
+- node version: 21.6.1
+- npm version: 10.2.4
+- command used to init app: npx create-react-app react-template --template cra-template-redux-typescript
+- command used to init eslint: npm init @eslint/config
+
+- internationalization

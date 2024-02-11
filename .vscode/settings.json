@@ -1,0 +1,17 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "javascript.preferences.quoteStyle": "double",
+  "typescript.preferences.quoteStyle": "double",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "explorer.compactFolders": false,
+  "files.insertFinalNewline": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
+}
