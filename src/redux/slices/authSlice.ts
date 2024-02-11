@@ -1,4 +1,4 @@
-import SignInResponse from "@/models/apis/SignInResponse";
+import SignInResponse from "@/models/apis/responses/SignInResponse";
 import User from "@/models/entities/User";
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authApi from "../apis/authApi";

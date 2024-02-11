@@ -1,4 +1,4 @@
-import SignInResponse from "@/models/apis/SignInResponse";
+import SignInResponse from "@/models/apis/responses/SignInResponse";
 import { QueryReturnValue } from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { clearAuthState, setAuthState } from "../slices/authSlice";

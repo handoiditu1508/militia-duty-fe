@@ -1,4 +1,4 @@
-import User from "../entities/User";
+import User from "@/models/entities/User";
 
 type SignInResponse = {
   expirationTime: string;
