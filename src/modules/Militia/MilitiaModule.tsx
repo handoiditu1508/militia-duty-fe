@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-function MainModule() {
+function MilitiaModule() {
   return (
     <Outlet />
   );
 }
 
-export default MainModule;
+export default MilitiaModule;

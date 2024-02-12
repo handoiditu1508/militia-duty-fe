@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-function MainModule() {
+function DutyDateModule() {
   return (
     <Outlet />
   );
 }
 
-export default MainModule;
+export default DutyDateModule;

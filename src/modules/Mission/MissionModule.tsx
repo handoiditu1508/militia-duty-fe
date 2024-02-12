@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-function MainModule() {
+function MissionModule() {
   return (
     <Outlet />
   );
 }
 
-export default MainModule;
+export default MissionModule;

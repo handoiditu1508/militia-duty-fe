@@ -1,10 +1,8 @@
 import { BreakpointsContext } from "@/providers/BreakpointsProvider";
 import { InfoContext } from "@/providers/InfoProvider";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import PersonIcon from "@mui/icons-material/Person";
-import TaskIcon from "@mui/icons-material/Task";
 import { SwipeableDrawerProps, useTheme } from "@mui/material";
 import React, { ProviderProps, useContext, useEffect, useState } from "react";
 import { SidebarTab } from "./SidebarItem";
@@ -15,15 +13,8 @@ const sidebarTabs: SidebarTab[][] = [
   [
     {
       title: "Ca trực",
-      to: "/dutydates",
+      to: "/duty-dates",
       icon: <CalendarTodayIcon />,
-      childs: [
-        {
-          title: "Coi cổng",
-          to: "/dutydates/shifts",
-          icon: <AssignmentIndIcon />,
-        },
-      ],
     },
     {
       title: "Cơ động",
@@ -34,13 +25,6 @@ const sidebarTabs: SidebarTab[][] = [
       title: "Nhiệm vụ",
       to: "/missions",
       icon: <AssignmentIcon />,
-      childs: [
-        {
-          title: "Nhiệm vụ con",
-          to: "/missions/tasks",
-          icon: <TaskIcon />,
-        },
-      ],
     },
   ],
 ];
