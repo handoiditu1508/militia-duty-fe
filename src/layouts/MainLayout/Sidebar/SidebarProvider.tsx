@@ -1,16 +1,10 @@
 import { BreakpointsContext } from "@/providers/BreakpointsProvider";
 import { InfoContext } from "@/providers/InfoProvider";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
-import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
-import FlareIcon from "@mui/icons-material/Flare";
-import ForestIcon from "@mui/icons-material/Forest";
-import GrassIcon from "@mui/icons-material/Grass";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
-import ParkIcon from "@mui/icons-material/Park";
-import PetsIcon from "@mui/icons-material/Pets";
-import WaterDropIcon from "@mui/icons-material/WaterDrop";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import PersonIcon from "@mui/icons-material/Person";
+import TaskIcon from "@mui/icons-material/Task";
 import { SwipeableDrawerProps, useTheme } from "@mui/material";
 import React, { ProviderProps, useContext, useEffect, useState } from "react";
 import { SidebarTab } from "./SidebarItem";
@@ -20,69 +14,33 @@ type CustomTransition = (...props: string[]) => React.CSSProperties["transition"
 const sidebarTabs: SidebarTab[][] = [
   [
     {
-      title: "Nature",
-      to: "/nature",
-      icon: <GrassIcon />,
+      title: "Ca trực",
+      to: "/dutydates",
+      icon: <CalendarTodayIcon />,
       childs: [
         {
-          title: "Lone Ranger",
-          to: "/nature/solo",
-          icon: <ParkIcon />,
-        },
-        {
-          title: "Guild",
-          to: "/nature/guild",
-          icon: <ForestIcon />,
-        },
-        {
-          title: "Wild",
-          to: "/wild",
-          icon: <PetsIcon />,
+          title: "Coi cổng",
+          to: "/dutydates/shifts",
+          icon: <AssignmentIndIcon />,
         },
       ],
     },
     {
-      title: "Fire",
-      to: "/fire",
-      icon: <LocalFireDepartmentIcon />,
+      title: "Cơ động",
+      to: "/militias",
+      icon: <PersonIcon />,
     },
     {
-      title: "Water",
-      to: "/water",
-      icon: <WaterDropIcon />,
+      title: "Nhiệm vụ",
+      to: "/missions",
+      icon: <AssignmentIcon />,
       childs: [
         {
-          title: "Ice",
-          to: "/ice",
-          icon: <AcUnitIcon />,
+          title: "Nhiệm vụ con",
+          to: "/missions/tasks",
+          icon: <TaskIcon />,
         },
       ],
-    },
-    {
-      title: "Electricity",
-      to: "/electricity",
-      icon: <ElectricBoltIcon />,
-    },
-    {
-      title: "Light",
-      to: "/light",
-      icon: <FlareIcon />,
-    },
-    {
-      title: "Shadow",
-      to: "/shadow",
-      icon: <DarkModeIcon />,
-    },
-    {
-      title: "Magic",
-      to: "/magic",
-      icon: <AutoFixHighIcon />,
-    },
-  ],
-  [
-    {
-      title: "Privacy Policy",
-      to: "/privacy-policy",
     },
   ],
 ];
