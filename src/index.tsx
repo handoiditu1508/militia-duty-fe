@@ -1,3 +1,5 @@
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
@@ -18,23 +20,25 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>{/* redux store */}
-      <NotificationProvider>{/* control notification toasts */}
-        <ConfirmationDialogProvider>{/* shared confirmation dialog */}
-          <InfoProvider>{/* info about style and environment changes */}
-            <PaletteModeProvider>{/* dark, light modes */}
-              <AppThemeProvider>{/* mui theme */}
-                <BreakpointsProvider>{/* breakpoints helper */}
-                  <BrowserRouter>{/* react router */}
-                    <App />
-                  </BrowserRouter>
-                </BreakpointsProvider>
-              </AppThemeProvider>
-            </PaletteModeProvider>
-          </InfoProvider>
-        </ConfirmationDialogProvider>
-      </NotificationProvider>
-    </Provider>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>{/* mui-x-date-picker */}
+      <Provider store={store}>{/* redux store */}
+        <NotificationProvider>{/* control notification toasts */}
+          <ConfirmationDialogProvider>{/* shared confirmation dialog */}
+            <InfoProvider>{/* info about style and environment changes */}
+              <PaletteModeProvider>{/* dark, light modes */}
+                <AppThemeProvider>{/* mui theme */}
+                  <BreakpointsProvider>{/* breakpoints helper */}
+                    <BrowserRouter>{/* react router */}
+                      <App />
+                    </BrowserRouter>
+                  </BreakpointsProvider>
+                </AppThemeProvider>
+              </PaletteModeProvider>
+            </InfoProvider>
+          </ConfirmationDialogProvider>
+        </NotificationProvider>
+      </Provider>
+    </LocalizationProvider>
   </React.StrictMode>
 );
 
