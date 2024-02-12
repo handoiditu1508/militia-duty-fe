@@ -1,6 +1,6 @@
 type DutyDateFilter = {
-  startDate?: Date | null;
-  endDate?: Date | null;
+  startDate?: string | null;
+  endDate?: string | null;
 }
 
 export default DutyDateFilter;

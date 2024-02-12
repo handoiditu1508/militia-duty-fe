@@ -14,6 +14,9 @@ const dutyDateApi = appApi.injectEndpoints({
         url: baseUrlPath,
         params,
       }),
+      transformResponse: (dutyDates: DutyDate[], _meta, _arg) => {
+        return dutyDates.sort((d1, d2) => Date.parse(d1.date) - Date.parse(d2.date));
+      },
       providesTags: (result) => result
         ? [
           ...result.map(({ id }) => ({ type: "DutyDate", id }) as const),

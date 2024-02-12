@@ -1,6 +1,6 @@
 type DoDutyDatesRequest = {
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   isFullDutyDate?: boolean | null;
 }
 
