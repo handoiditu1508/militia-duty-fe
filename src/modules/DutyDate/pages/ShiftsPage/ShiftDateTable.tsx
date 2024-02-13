@@ -61,7 +61,7 @@ const ShiftDateTable = styled(({ dutyDates, missions, ...props }: ShiftDateTable
           </TableRow>
         </TableHead>
         <TableBody>
-          {tasks.map((task) => <TableRow key={task.id}>
+          {tasks.map((task) => <TableRow key={task.id} hover>
             {dutyDates.map((dutyDate) => <TableCell key={dutyDate.id}>
               {shiftMap[`${task.id}-${dutyDate.id}`].map((militiaName, index) => <Fragment key={index}>
                 {militiaName}
