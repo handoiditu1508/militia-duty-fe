@@ -7,9 +7,7 @@ type MissionNameTableProps = TableContainerProps & {
 }
 
 const minutesToHourString = (minutes: number) => {
-  const miliseconds = minutes * 60000;
-  const date = new Date(miliseconds);
-  return date.toTimeString().slice(0, 5);
+  return `${Math.floor(minutes / 60) % 24}:${(minutes % 60).toString().padStart(2, "0")}`;
 };
 
 const MissionNameTable = styled(({ missions, ...props }: MissionNameTableProps) => {
