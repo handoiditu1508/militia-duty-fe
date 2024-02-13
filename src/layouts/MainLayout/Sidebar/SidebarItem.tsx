@@ -48,7 +48,7 @@ export default function SidebarItem({ sidebarTab, level = 0, hideChilds }: Sideb
               easing: theme.transitions.easing.sharp,
             }),
             "&:hover": {
-              color: theme.palette.error.main,
+              color: theme.palette.primary.main,
             },
           }} onClick={handleClickExpandIcon} />}
         </ListItemButton>

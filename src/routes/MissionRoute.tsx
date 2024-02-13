@@ -4,8 +4,8 @@ const MissionModule = React.lazy(() => import("@/modules/Mission"));
 const MissionsPage = React.lazy(() => import("@/modules/Mission/pages/MissionsPage"));
 
 const MissionRoute = (
-  <Route element={<MissionModule />}>
-    <Route path="missions" element={<MissionsPage />} />
+  <Route path="missions" element={<MissionModule />}>
+    <Route index element={<MissionsPage />} />
   </Route>
 );
 

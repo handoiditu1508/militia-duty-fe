@@ -1,27 +1,22 @@
 import CONFIG from "@/configs";
 import { useGetDutyDatesQuery } from "@/redux/apis/dutyDateApi";
-import { useGetMilitiasQuery } from "@/redux/apis/militiaApi";
-import { Box, Button } from "@mui/material";
+import { useGetMissionsQuery } from "@/redux/apis/missionApi";
+import { Box } from "@mui/material";
 import { DatePicker, DateValidationError, PickerChangeHandlerContext } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
-import DutyDateTable from "./DutyDateTable";
+import ShiftTable from "./ShiftTable";
 
-
-
-function DutyDatesPage() {
+function ShiftsPage() {
   const [startDate, setStartDate] = useState<Dayjs>(dayjs().startOf("week"));
   const [endDate, setEndDate] = useState<Dayjs>(dayjs().endOf("week"));
   const isDateRangeValid = startDate.isBefore(endDate, "date") || startDate.isSame(endDate, "date");
-  const [startEditDate, setStartEditDate] = useState<Dayjs>(dayjs().startOf("week"));
-  const [endEditDate, setEndEditDate] = useState<Dayjs>(dayjs().endOf("week"));
-  const isEditDateRangeValid = startEditDate.isBefore(endEditDate, "date") || startEditDate.isSame(endEditDate, "date");
 
   const {
-    data: militias,
-    isFetching: isFetchingMilitias,
-    isLoading: isLoadingMilitias,
-  } = useGetMilitiasQuery();
+    data: missions,
+    isFetching: isFetchingMissions,
+    isLoading: isLoadingMissions,
+  } = useGetMissionsQuery();
 
   const {
     data: dutyDates,
@@ -40,22 +35,13 @@ function DutyDatesPage() {
     }
   };
 
-  const handleClick = () => {
-    // todo: reassign tasks
-  };
-
   return (
     <Box padding={CONFIG.LAYOUT_PADDING}>
       <DatePicker label="Start" value={startDate} onChange={handleDateChange(setStartDate)} />
       <DatePicker label="End" value={endDate} onChange={handleDateChange(setEndDate)} />
-      <br />
-      <br />
-      <DatePicker label="Start Edit" value={startEditDate} onChange={handleDateChange(setStartEditDate)} />
-      <DatePicker label="End Edit" value={endEditDate} onChange={handleDateChange(setEndEditDate)} />
-      <Button onClick={handleClick} disabled={!isDateRangeValid}>Click</Button>
-      {militias && dutyDates && <DutyDateTable militias={militias} dutyDates={dutyDates} sx={{ marginTop: 2 }} />}
+      {missions && dutyDates && <ShiftTable missions={missions} dutyDates={dutyDates} />}
     </Box>
   );
 }
 
-export default DutyDatesPage;
+export default ShiftsPage;

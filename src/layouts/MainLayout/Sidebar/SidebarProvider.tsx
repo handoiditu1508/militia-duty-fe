@@ -1,11 +1,13 @@
 import { BreakpointsContext } from "@/providers/BreakpointsProvider";
 import { InfoContext } from "@/providers/InfoProvider";
 import AssignmentIcon from "@mui/icons-material/Assignment";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import PersonIcon from "@mui/icons-material/Person";
 import { SwipeableDrawerProps, useTheme } from "@mui/material";
 import React, { ProviderProps, useContext, useEffect, useState } from "react";
 import { SidebarTab } from "./SidebarItem";
+
 
 type SidebarState = "hidden" | "temporary" | "mini" | "permanent" | "miniHovered";
 type CustomTransition = (...props: string[]) => React.CSSProperties["transition"];
@@ -15,6 +17,13 @@ const sidebarTabs: SidebarTab[][] = [
       title: "Ca trực",
       to: "/duty-dates",
       icon: <CalendarTodayIcon />,
+      childs: [
+        {
+          title: "Coi cổng",
+          to: "/duty-dates/shifts",
+          icon: <AssignmentIndIcon />,
+        },
+      ],
     },
     {
       title: "Cơ động",
