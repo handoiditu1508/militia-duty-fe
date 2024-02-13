@@ -1,4 +1,3 @@
-import CONFIG from "@/configs";
 import DoDutyDatesRequest from "@/models/apis/requests/DoDutyDatesRequest";
 import DutyDateFilter from "@/models/apis/requests/DutyDateFilter";
 import UndoDutyDateRequest from "@/models/apis/requests/UndoDutyDateRequest";
@@ -43,8 +42,11 @@ const dutyDateApi = appApi.injectEndpoints({
         body,
       }),
       invalidatesTags: (result) => result
-        ? [...result.map(({ id }) => ({ type: "DutyDate", id }) as const)]
-        : CONFIG.EMPTY_ARRAY,
+        ? [
+          ...result.map(({ id }) => ({ type: "DutyDate", id }) as const),
+          { type: "DutyDate", id: "LIST" },
+        ]
+        : [{ type: "DutyDate", id: "LIST" }],
     }),
     deleteDutyDates: builder.mutation<void, UndoDutyDateRequest>({
       query: (params) => ({
