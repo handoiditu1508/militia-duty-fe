@@ -69,43 +69,15 @@ const ShiftDateTable = styled(({ dutyDates, missions, ...props }: ShiftDateTable
               </Fragment>)}
             </TableCell>)}
           </TableRow>)}
-          {/* <TableRow>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-            <TableCell>Ho Hao Hon<br />Ho Hao Hon</TableCell>
-          </TableRow> */}
         </TableBody>
       </Table>
     </TableContainer>
   );
 })(({ theme }) => ({
   ".MuiTableCell-root": {
-    borderLeft: theme.palette.mode === "light" ? "1px solid rgb(224, 224, 224)" : "1px solid rgb(81, 81, 81)",
+    "&:not(:first-of-type)": {
+      borderLeft: theme.palette.mode === "light" ? "1px solid rgb(224, 224, 224)" : "1px solid rgb(81, 81, 81)",
+    },
   },
 }));
 

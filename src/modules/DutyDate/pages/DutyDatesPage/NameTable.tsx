@@ -25,13 +25,16 @@ const NameTable = styled(React.forwardRef<HTMLDivElement, NameTableProps>(({ mil
       </Table>
     </TableContainer>
   );
-}))(() => ({
+}))(({ theme }) => ({
   maxHeight: 700,
   maxWidth: 100,
   ".MuiTableCell-root": {
     whiteSpace: "nowrap",
     "&.MuiTableCell-head": {
       height: 48,
+    },
+    "&:last-of-type": {
+      borderRight: theme.palette.mode === "light" ? "1px solid rgb(224, 224, 224)" : "1px solid rgb(81, 81, 81)",
     },
   },
   overflowY: "hidden",

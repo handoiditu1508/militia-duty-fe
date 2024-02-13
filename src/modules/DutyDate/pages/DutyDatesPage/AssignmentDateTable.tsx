@@ -50,7 +50,9 @@ const AssignmentDateTable = styled(({ militias, dutyDates, ...props }: Assignmen
   maxHeight: 700,
   overflowX: "scroll",
   ".MuiTableCell-root": {
-    borderLeft: theme.palette.mode === "light" ? "1px solid rgb(224, 224, 224)" : "1px solid rgb(81, 81, 81)",
+    "&:not(:first-of-type)": {
+      borderLeft: theme.palette.mode === "light" ? "1px solid rgb(224, 224, 224)" : "1px solid rgb(81, 81, 81)",
+    },
     "&.full-duty": {
       backgroundColor: alpha(theme.palette.warning.main, 0.3),
     },

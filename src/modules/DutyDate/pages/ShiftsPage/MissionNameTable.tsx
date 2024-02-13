@@ -39,7 +39,7 @@ const MissionNameTable = styled(({ missions, ...props }: MissionNameTableProps) 
       </Table>
     </TableContainer>
   );
-})(() => ({
+})(({ theme }) => ({
   maxWidth: 200,
   ".MuiTableCell-root": {
     "&.MuiTableCell-head": {
@@ -47,6 +47,9 @@ const MissionNameTable = styled(({ missions, ...props }: MissionNameTableProps) 
     },
     "&.mission-name": {
       maxWidth: 50,
+    },
+    "&:last-of-type": {
+      borderRight: theme.palette.mode === "light" ? "1px solid rgb(224, 224, 224)" : "1px solid rgb(81, 81, 81)",
     },
   },
 }));
