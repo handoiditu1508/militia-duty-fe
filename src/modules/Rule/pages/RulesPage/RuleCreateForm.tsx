@@ -64,8 +64,8 @@ function RuleCreateForm(props: BoxProps<"form">) {
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
       await addRule({
-        startDate: data.startDate.toISOString(),
-        endDate: data.endDate ? data.endDate.add(1, "day").toISOString() : undefined,
+        startDate: data.startDate.utc(true).toISOString(),
+        endDate: data.endDate ? data.endDate.utc(true).toISOString() : undefined,
         description: data.description.trim() ? data.description : undefined,
         type: data.type,
         militias: militias ? militias.filter(m => data.militias.includes(m.id)) : undefined,
@@ -96,7 +96,7 @@ function RuleCreateForm(props: BoxProps<"form">) {
         name="endDate"
         rules={{
           validate: {
-            afterStartDate: (value, formValues) => !value || value.add(1, "day").isAfter(formValues.startDate) || value.add(1, "day").isSame(formValues.startDate),
+            afterStartDate: (value, formValues) => !value || value.isAfter(formValues.startDate) || value.format("yyyyMMdd") === formValues.startDate.format("yyyyMMdd"),
             valid: (value) => !value || value.isValid(),
           },
         }}

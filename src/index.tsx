@@ -1,5 +1,7 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
@@ -14,6 +16,8 @@ import NotificationProvider from "./providers/NotificationProvider";
 import PaletteModeProvider from "./providers/PaletteModeProvider";
 import store from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
+
+dayjs.extend(utc);
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);

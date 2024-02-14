@@ -30,8 +30,8 @@ function DutyDatesPage() {
     isFetching: isFetchingDutyDates,
     isLoading: isLoadingDutyDates,
   } = useGetDutyDatesQuery({
-    startDate: startDate.add(1, "day").toISOString(),
-    endDate: endDate.toISOString(),
+    startDate: startDate.utc(true).toISOString(),
+    endDate: endDate.utc(true).toISOString(),
   }, {
     skip: !isDateRangeValid,
   });
@@ -64,8 +64,8 @@ function DutyDatesPage() {
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     try {
       await addDutyDates({
-        startDate: data.startDate.add(1, "day").toISOString(),
-        endDate: data.endDate.toISOString(),
+        startDate: data.startDate.utc(true).toISOString(),
+        endDate: data.endDate.utc(true).toISOString(),
         isFullDutyDate: data.isFullDutyDate,
       }).unwrap();
     } catch (error) {

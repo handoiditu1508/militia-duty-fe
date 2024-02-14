@@ -23,8 +23,8 @@ function ShiftsPage() {
     isFetching: isFetchingDutyDates,
     isLoading: isLoadingDutyDates,
   } = useGetDutyDatesQuery({
-    startDate: startDate.add(1, "day").toISOString(),
-    endDate: endDate.toISOString(),
+    startDate: startDate.utc(true).toISOString(),
+    endDate: endDate.utc(true).toISOString(),
   }, {
     skip: !isDateRangeValid,
   });
