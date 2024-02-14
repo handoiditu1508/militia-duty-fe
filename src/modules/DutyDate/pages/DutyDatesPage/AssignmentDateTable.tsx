@@ -47,7 +47,7 @@ const AssignmentDateTable = styled(({ militias, dutyDates, ...props }: Assignmen
     </TableContainer>
   );
 })(({ theme }) => ({
-  maxHeight: 700,
+  // maxHeight: 700,
   overflowX: "scroll",
   ".MuiTableCell-root": {
     "&:not(:first-of-type)": {

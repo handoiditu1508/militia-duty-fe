@@ -62,16 +62,20 @@ function RuleCreateForm(props: BoxProps<"form">) {
   } = useGetMissionsQuery();
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
-    await addRule({
-      startDate: data.startDate.toISOString(),
-      endDate: data.endDate ? data.endDate.toISOString() : undefined,
-      description: data.description.trim() ? data.description : undefined,
-      type: data.type,
-      militias: militias ? militias.filter(m => data.militias.includes(m.id)) : undefined,
-      tasks: ruleMetaData.isShowTasks && missions ? missions.map(m => m.tasks).flat().filter(t => data.tasks.includes(t.id)) : undefined,
-      weeksdays: ruleMetaData.isShowWeeksdays ? data.weeksdays : undefined,
-      numberValue: ruleMetaData.isShowNumberValue ? data.numberValue : undefined,
-    }).unwrap();
+    try {
+      await addRule({
+        startDate: data.startDate.toISOString(),
+        endDate: data.endDate ? data.endDate.add(1, "day").toISOString() : undefined,
+        description: data.description.trim() ? data.description : undefined,
+        type: data.type,
+        militias: militias ? militias.filter(m => data.militias.includes(m.id)) : undefined,
+        tasks: ruleMetaData.isShowTasks && missions ? missions.map(m => m.tasks).flat().filter(t => data.tasks.includes(t.id)) : undefined,
+        weeksdays: ruleMetaData.isShowWeeksdays ? data.weeksdays : undefined,
+        numberValue: ruleMetaData.isShowNumberValue ? data.numberValue : undefined,
+      }).unwrap();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -92,7 +96,7 @@ function RuleCreateForm(props: BoxProps<"form">) {
         name="endDate"
         rules={{
           validate: {
-            afterStartDate: (value, formValues) => !value || value.isAfter(formValues.startDate) || value.isSame(formValues.startDate),
+            afterStartDate: (value, formValues) => !value || value.add(1, "day").isAfter(formValues.startDate) || value.add(1, "day").isSame(formValues.startDate),
             valid: (value) => !value || value.isValid(),
           },
         }}

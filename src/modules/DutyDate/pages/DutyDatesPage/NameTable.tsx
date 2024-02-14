@@ -26,7 +26,7 @@ const NameTable = styled(React.forwardRef<HTMLDivElement, NameTableProps>(({ mil
     </TableContainer>
   );
 }))(({ theme }) => ({
-  maxHeight: 700,
+  // maxHeight: 700,
   maxWidth: 100,
   ".MuiTableCell-root": {
     whiteSpace: "nowrap",
