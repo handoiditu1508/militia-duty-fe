@@ -4,6 +4,7 @@ import DutyDateRoute from "./DutyDateRoute";
 import MainRoute from "./MainRoute";
 import MilitiaRoute from "./MilitiaRoute";
 import MissionRoute from "./MissionRoute";
+import RuleRoute from "./RuleRoute";
 
 export default function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ export default function AppRoutes() {
         {DutyDateRoute}
         {MilitiaRoute}
         {MissionRoute}
+        {RuleRoute}
         <Route />
         <Route path="*"
           element={

@@ -1,3 +1,4 @@
+import { minutesToHourString } from "@/common/formats";
 import Mission from "@/models/entities/Mission";
 import { Table, TableBody, TableCell, TableContainer, TableContainerProps, TableHead, TableRow, styled } from "@mui/material";
 import { Fragment } from "react";
@@ -5,10 +6,6 @@ import { Fragment } from "react";
 type MissionNameTableProps = TableContainerProps & {
   missions: Mission[];
 }
-
-const minutesToHourString = (minutes: number) => {
-  return `${Math.floor(minutes / 60) % 24}:${(minutes % 60).toString().padStart(2, "0")}`;
-};
 
 const MissionNameTable = styled(({ missions, ...props }: MissionNameTableProps) => {
   return (

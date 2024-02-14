@@ -5,5 +5,6 @@ export const camelToTitleCase = (value: string) => value.charAt(0).toUpperCase()
 export const kebabToTitleCase = (value: string) => value.replace(/(^\w|-\w)/g, s => s.replace(/-/, " ").toUpperCase());
 export const kebabToPascalCase = (value: string) => value.replace(/(^\w|-\w)/g, kebabReplacer);
 export const kebabToCamelCase = (value: string) => value.replace(/-\w/g, kebabReplacer);
+export const minutesToHourString = (minutes: number) => `${Math.floor(minutes / 60) % 24}:${(minutes % 60).toString().padStart(2, "0")}`;
 
 const kebabReplacer = (substring: string) => substring.replace(/-/, "").toUpperCase();

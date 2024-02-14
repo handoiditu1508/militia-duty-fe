@@ -13,6 +13,17 @@ export enum RuleType {
   TaskImmune,
 }
 
+export const ruleTypeNameMap: Record<RuleType, string> = {
+  [RuleType.DateOff]: "Nghỉ vào ngày",
+  [RuleType.DutyDate]: "Trực vào ngày",
+  [RuleType.WeeklyDutyOnly]: "Trực theo thứ",
+  [RuleType.FullDuty]: "Trực full",
+  [RuleType.AlternatingDuty]: "Thay phiên nhau trực",
+  [RuleType.IncludeTasks]: "Có thể coi cổng",
+  [RuleType.ExcludeTasks]: "Không thể coi cổng",
+  [RuleType.TaskImmune]: "Không cần coi cổng",
+};
+
 type Rule = {
   id: number;
   startDate: string;

@@ -4,6 +4,7 @@ import AssignmentIcon from "@mui/icons-material/Assignment";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import PersonIcon from "@mui/icons-material/Person";
+import RuleIcon from "@mui/icons-material/Rule";
 import { SwipeableDrawerProps, useTheme } from "@mui/material";
 import React, { ProviderProps, useContext, useEffect, useState } from "react";
 import { SidebarTab } from "./SidebarItem";
@@ -29,6 +30,11 @@ const sidebarTabs: SidebarTab[][] = [
       title: "Cơ động",
       to: "/militias",
       icon: <PersonIcon />,
+    },
+    {
+      title: "Điều kiện",
+      to: "/rules",
+      icon: <RuleIcon />,
     },
     {
       title: "Nhiệm vụ",

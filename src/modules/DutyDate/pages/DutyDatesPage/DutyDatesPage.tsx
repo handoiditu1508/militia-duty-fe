@@ -18,9 +18,6 @@ function DutyDatesPage() {
   const [startDate, setStartDate] = useState<Dayjs>(dayjs().startOf("week"));
   const [endDate, setEndDate] = useState<Dayjs>(dayjs().endOf("week"));
   const isDateRangeValid = startDate.isBefore(endDate, "date") || startDate.isSame(endDate, "date");
-  // const [startEditDate, setStartEditDate] = useState<Dayjs>(dayjs().startOf("week"));
-  // const [endEditDate, setEndEditDate] = useState<Dayjs>(dayjs().endOf("week"));
-  // const isEditDateRangeValid = startEditDate.isBefore(endEditDate, "date") || startEditDate.isSame(endEditDate, "date");
 
   const {
     data: militias,
