@@ -34,6 +34,7 @@ function RuleCreateForm(props: BoxProps<"form">) {
     handleSubmit,
     watch,
     setValue,
+    reset,
   } = useForm<FormInputs>({
     defaultValues: {
       type: RuleType.DateOff,
@@ -73,6 +74,7 @@ function RuleCreateForm(props: BoxProps<"form">) {
         weeksdays: ruleMetaData.isShowWeeksdays ? data.weeksdays : undefined,
         numberValue: ruleMetaData.isShowNumberValue ? data.numberValue : undefined,
       }).unwrap();
+      reset(formState.defaultValues);
     } catch (error) {
       console.error(error);
     }

@@ -110,7 +110,7 @@ function DutyDatesPage() {
         />
         <Button type="submit" disabled={!formState.isValid || isAddDutyDatesLoading}>Chia ca</Button>
       </Box>
-      {militias && dutyDates && <DutyDateTable militias={militias} dutyDates={dutyDates} sx={{ marginTop: 2 }} />}
+      {militias && dutyDates && <DutyDateTable militias={militias} dutyDates={dutyDates} sx={{ marginTop: 10 }} />}
     </Box>
   );
 }

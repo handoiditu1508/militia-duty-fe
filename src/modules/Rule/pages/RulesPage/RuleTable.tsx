@@ -112,7 +112,7 @@ function RuleTable(props: TableContainerProps) {
                       <Typography variant="h6">Ngày trong tuần:</Typography>
                       <Typography variant="body2">{rule.weeksdays.join(", ")}</Typography>
                     </>}
-                    {rule.numberValue && <>
+                    {!!rule.numberValue && <>
                       <Typography variant="h6">Giá trị số:</Typography>
                       <Typography variant="body2">{rule.numberValue}</Typography>
                     </>}

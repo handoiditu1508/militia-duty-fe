@@ -39,7 +39,7 @@ function ShiftsPage() {
     <Box padding={CONFIG.LAYOUT_PADDING}>
       <DatePicker label="Start" value={startDate} onChange={handleDateChange(setStartDate)} />
       <DatePicker label="End" value={endDate} onChange={handleDateChange(setEndDate)} />
-      {missions && dutyDates && <ShiftTable missions={missions} dutyDates={dutyDates} />}
+      {missions && dutyDates && <ShiftTable missions={missions} dutyDates={dutyDates} sx={{ marginTop: 10 }} />}
     </Box>
   );
 }
