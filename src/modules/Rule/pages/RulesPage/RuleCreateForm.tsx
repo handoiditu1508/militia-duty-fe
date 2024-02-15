@@ -1,5 +1,5 @@
 import { minutesToHourString } from "@/common/formats";
-import DayOfWeek from "@/models/DayOfWeek";
+import DayOfWeek, { dayOfWeekNameMap } from "@/models/DayOfWeek";
 import { RuleType, ruleTypeNameMap } from "@/models/entities/Rule";
 import { useGetMilitiasQuery } from "@/redux/apis/militiaApi";
 import { useGetMissionsQuery } from "@/redux/apis/missionApi";
@@ -18,7 +18,7 @@ type FormInputs = {
   description: string;
   militias: number[];
   tasks: number[];
-  weeksdays: DayOfWeek[];
+  weekdays: DayOfWeek[];
   numberValue: number;
 }
 
@@ -41,7 +41,7 @@ function RuleCreateForm(props: BoxProps<"form">) {
       startDate: dayjs(),
       endDate: null,
       description: "",
-      weeksdays: [],
+      weekdays: [],
       militias: [],
       tasks: [],
       numberValue: 0,
@@ -71,7 +71,7 @@ function RuleCreateForm(props: BoxProps<"form">) {
         type: data.type,
         militias: militias ? militias.filter(m => data.militias.includes(m.id)) : undefined,
         tasks: ruleMetaData.isShowTasks && missions ? missions.map(m => m.tasks).flat().filter(t => data.tasks.includes(t.id)) : undefined,
-        weeksdays: ruleMetaData.isShowWeeksdays ? data.weeksdays : undefined,
+        weekdays: ruleMetaData.isShowWeekdays ? data.weekdays : undefined,
         numberValue: ruleMetaData.isShowNumberValue ? data.numberValue : undefined,
       }).unwrap();
       reset(formState.defaultValues);
@@ -168,22 +168,22 @@ function RuleCreateForm(props: BoxProps<"form">) {
           </Select>
         </FormControl>}
       />}
-      {ruleMetaData.isShowWeeksdays && <Controller
+      {ruleMetaData.isShowWeekdays && <Controller
         control={control}
-        name="weeksdays"
+        name="weekdays"
         rules={{
           required: true,
         }}
         render={({ field }) => <FormControl fullWidth margin="dense">
           <InputLabel>Ngày trong tuần</InputLabel>
           <Select label="Ngày trong tuần" multiple {...field}>
-            <MenuItem value={DayOfWeek.Sunday}>Chủ Nhật</MenuItem>
-            <MenuItem value={DayOfWeek.Monday}>Thứ Hai</MenuItem>
-            <MenuItem value={DayOfWeek.Tuesday}>Thứ Ba</MenuItem>
-            <MenuItem value={DayOfWeek.Wednesday}>Thứ Tư</MenuItem>
-            <MenuItem value={DayOfWeek.Thursday}>Thứ Năm</MenuItem>
-            <MenuItem value={DayOfWeek.Friday}>Thứ Sáu</MenuItem>
-            <MenuItem value={DayOfWeek.Saturday}>Thứ Bảy</MenuItem>
+            <MenuItem value={DayOfWeek.Sunday}>{dayOfWeekNameMap[DayOfWeek.Sunday]}</MenuItem>
+            <MenuItem value={DayOfWeek.Monday}>{dayOfWeekNameMap[DayOfWeek.Monday]}</MenuItem>
+            <MenuItem value={DayOfWeek.Tuesday}>{dayOfWeekNameMap[DayOfWeek.Tuesday]}</MenuItem>
+            <MenuItem value={DayOfWeek.Wednesday}>{dayOfWeekNameMap[DayOfWeek.Wednesday]}</MenuItem>
+            <MenuItem value={DayOfWeek.Thursday}>{dayOfWeekNameMap[DayOfWeek.Thursday]}</MenuItem>
+            <MenuItem value={DayOfWeek.Friday}>{dayOfWeekNameMap[DayOfWeek.Friday]}</MenuItem>
+            <MenuItem value={DayOfWeek.Saturday}>{dayOfWeekNameMap[DayOfWeek.Saturday]}</MenuItem>
           </Select>
         </FormControl>}
       />}

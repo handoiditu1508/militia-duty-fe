@@ -3,7 +3,7 @@ import { RuleType } from "@/models/entities/Rule";
 type RuleMetaData = {
   type: RuleType;
   minimumMilitias: number;
-  isShowWeeksdays?: boolean;
+  isShowWeekdays?: boolean;
   isShowNumberValue?: boolean;
   isShowTasks?: boolean;
 }

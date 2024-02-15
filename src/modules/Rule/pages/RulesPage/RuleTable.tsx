@@ -1,4 +1,5 @@
 import { minutesToHourString } from "@/common/formats";
+import { dayOfWeekNameMap } from "@/models/DayOfWeek";
 import Mission from "@/models/entities/Mission";
 import Rule, { ruleTypeNameMap } from "@/models/entities/Rule";
 import { ConfirmationDialogContext } from "@/providers/ConfirmationDialogProvider";
@@ -94,13 +95,13 @@ function RuleTable(props: TableContainerProps) {
                       <Typography variant="h6">Ghi chú:</Typography>
                       <Typography variant="body2">{rule.description}</Typography>
                     </>}
-                    {rule.militias.length && <>
+                    {!!rule.militias.length && <>
                       <Typography variant="h6">Cơ động:</Typography>
                       <ul>
                         {rule.militias.map(militia => <Typography key={militia.id} component="li" variant="body2">{militia.name}</Typography>)}
                       </ul>
                     </>}
-                    {rule.tasks.length && <>
+                    {!!rule.tasks.length && <>
                       <Typography variant="h6">Ca coi cổng:</Typography>
                       <ul>
                         {rule.tasks.map(task => <Typography key={task.id} component="li" variant="body2">
@@ -108,9 +109,9 @@ function RuleTable(props: TableContainerProps) {
                         </Typography>)}
                       </ul>
                     </>}
-                    {rule.weeksdays && <>
+                    {rule.weekdays && <>
                       <Typography variant="h6">Ngày trong tuần:</Typography>
-                      <Typography variant="body2">{rule.weeksdays.join(", ")}</Typography>
+                      <Typography variant="body2">{rule.weekdays.map(day => dayOfWeekNameMap[day]).join(", ")}</Typography>
                     </>}
                     {!!rule.numberValue && <>
                       <Typography variant="h6">Giá trị số:</Typography>

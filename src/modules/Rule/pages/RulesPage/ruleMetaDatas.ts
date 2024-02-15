@@ -13,7 +13,7 @@ const ruleMetaDatas: Record<RuleType, RuleMetaData> = {
   [RuleType.WeeklyDutyOnly]: {
     type: RuleType.WeeklyDutyOnly,
     minimumMilitias: 1,
-    isShowWeeksdays: true,
+    isShowWeekdays: true,
   },
   [RuleType.FullDuty]: {
     type: RuleType.FullDuty,
@@ -36,6 +36,11 @@ const ruleMetaDatas: Record<RuleType, RuleMetaData> = {
   [RuleType.TaskImmune]: {
     type: RuleType.TaskImmune,
     minimumMilitias: 1,
+  },
+  [RuleType.PreferOffDays]: {
+    type: RuleType.DateOff,
+    minimumMilitias: 1,
+    isShowWeekdays: true,
   },
 };
 
