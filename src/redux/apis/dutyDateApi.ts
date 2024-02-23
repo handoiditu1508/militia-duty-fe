@@ -45,8 +45,12 @@ const dutyDateApi = appApi.injectEndpoints({
         ? [
           ...result.map(({ id }) => ({ type: "DutyDate", id }) as const),
           { type: "DutyDate", id: "LIST" },
+          { type: "Militia", id: "LIST" },
         ]
-        : [{ type: "DutyDate", id: "LIST" }],
+        : [
+          { type: "DutyDate", id: "LIST" },
+          { type: "Militia", id: "LIST" },
+        ],
     }),
     deleteDutyDates: builder.mutation<void, UndoDutyDateRequest>({
       query: (params) => ({
