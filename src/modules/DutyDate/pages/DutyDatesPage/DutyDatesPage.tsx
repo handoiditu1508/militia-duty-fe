@@ -79,7 +79,7 @@ function DutyDatesPage() {
       <DatePicker label="End" value={endDate} onChange={handleDateChange(setEndDate)} />
       <br />
       <br />
-      <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+      <Box component="form" display="flex" onSubmit={handleSubmit(onSubmit)}>
         <Controller
           control={control}
           name="startDate"
@@ -108,6 +108,7 @@ function DutyDatesPage() {
           name="isFullDutyDate"
           render={({ field }) => <FormControlLabel label="Trực full" control={<Checkbox {...field} />} />}
         />
+        <Box flexGrow={1} />
         <Button type="submit" disabled={!formState.isValid || isAddDutyDatesLoading}>Chia ca</Button>
       </Box>
       {militias && dutyDates && <DutyDateTable militias={militias} dutyDates={dutyDates} sx={{ marginTop: 10 }} />}
