@@ -16,8 +16,6 @@ const MilitiaTable = styled((props: TableContainerProps) => {
 
   const {
     data: militias,
-    isFetching: isFetchingMilitias,
-    isLoading: isLoadingMilitias,
   } = useGetMilitiasQuery();
 
   const [deleteMilitia, { isLoading }] = useDeleteMilitiaMutation();
@@ -54,7 +52,7 @@ const MilitiaTable = styled((props: TableContainerProps) => {
         <Table size="small" stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell>Id</TableCell>
+              <TableCell>#/Id</TableCell>
               <TableCell>Tên</TableCell>
               <TableCell>Điểm trực</TableCell>
               <TableCell>Điểm coi cổng</TableCell>
@@ -62,9 +60,9 @@ const MilitiaTable = styled((props: TableContainerProps) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {militias && militias.map((militia) => (
+            {militias && militias.map((militia, index) => (
               <TableRow key={militia.id} hover>
-                <TableCell>{militia.id}</TableCell>
+                <TableCell>{index + 1}/{militia.id}</TableCell>
                 <TableCell>{militia.name}</TableCell>
                 <TableCell>{militia.dutyDateScore}</TableCell>
                 <TableCell>{militia.assignmentScore}</TableCell>

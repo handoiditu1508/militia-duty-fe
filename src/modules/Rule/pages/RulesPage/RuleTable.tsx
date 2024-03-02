@@ -62,7 +62,7 @@ function RuleTable(props: TableContainerProps) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Id</TableCell>
+            <TableCell>#/Id</TableCell>
             <TableCell>Ngày Bắt Đầu</TableCell>
             <TableCell>Ngày Kết Thúc</TableCell>
             <TableCell>Loại</TableCell>
@@ -70,9 +70,9 @@ function RuleTable(props: TableContainerProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rules && rules.map((rule) => <Fragment key={rule.id}>
+          {rules && rules.map((rule, index) => <Fragment key={rule.id}>
             <TableRow hover onClick={() => setOpeningRow(openingRow === rule.id ? undefined : rule.id)}>
-              <TableCell>{rule.id}</TableCell>
+              <TableCell>{index + 1}/{rule.id}</TableCell>
               <TableCell>{rule.startDate.slice(0, 10)}</TableCell>
               <TableCell>{rule.endDate && rule.endDate.slice(0, 10)}</TableCell>
               <TableCell>{ruleTypeNameMap[rule.type]}</TableCell>
