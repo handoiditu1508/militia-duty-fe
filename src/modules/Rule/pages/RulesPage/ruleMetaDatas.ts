@@ -27,11 +27,13 @@ const ruleMetaDatas: Record<RuleType, RuleMetaData> = {
     type: RuleType.IncludeTasks,
     minimumMilitias: 1,
     isShowTasks: true,
+    isShowWeekdays: true,
   },
   [RuleType.ExcludeTasks]: {
     type: RuleType.ExcludeTasks,
     minimumMilitias: 1,
     isShowTasks: true,
+    isShowWeekdays: true,
   },
   [RuleType.TaskImmune]: {
     type: RuleType.TaskImmune,
