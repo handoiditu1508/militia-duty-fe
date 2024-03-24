@@ -40,7 +40,8 @@ function RuleTable(props: TableContainerProps) {
     },
   });
 
-  const handleDelete = (rule: Rule) => {
+  const handleDelete = (rule: Rule): React.MouseEventHandler<HTMLButtonElement> => (event) => {
+    event.stopPropagation();
     openDialog(
       `Xóa điều kiện số ${rule.id}?`,
       {
@@ -81,7 +82,7 @@ function RuleTable(props: TableContainerProps) {
                   size="small"
                   color="error"
                   disabled={isLoading}
-                  onClick={() => handleDelete(rule)}
+                  onClick={handleDelete(rule)}
                 >
                   <DeleteIcon fontSize="inherit" />
                 </IconButton>
