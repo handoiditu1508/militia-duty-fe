@@ -40,7 +40,12 @@ const ruleMetaDatas: Record<RuleType, RuleMetaData> = {
     minimumMilitias: 1,
   },
   [RuleType.PreferOffDays]: {
-    type: RuleType.DateOff,
+    type: RuleType.PreferOffDays,
+    minimumMilitias: 1,
+    isShowWeekdays: true,
+  },
+  [RuleType.WeeklyOffDays]: {
+    type: RuleType.WeeklyOffDays,
     minimumMilitias: 1,
     isShowWeekdays: true,
   },

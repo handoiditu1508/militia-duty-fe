@@ -12,6 +12,7 @@ export enum RuleType {
   ExcludeTasks,
   TaskImmune,
   PreferOffDays,
+  WeeklyOffDays,
 }
 
 export const ruleTypeNameMap: Record<RuleType, string> = {
@@ -24,6 +25,7 @@ export const ruleTypeNameMap: Record<RuleType, string> = {
   [RuleType.ExcludeTasks]: "Không thể coi cổng",
   [RuleType.TaskImmune]: "Không cần coi cổng",
   [RuleType.PreferOffDays]: "Ưu tiên ngày off",
+  [RuleType.WeeklyOffDays]: "Nghỉ vào thứ",
 };
 
 type Rule = {
