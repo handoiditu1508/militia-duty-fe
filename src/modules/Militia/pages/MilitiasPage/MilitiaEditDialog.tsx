@@ -6,6 +6,8 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 type Inputs = {
   name: string;
+  fullName: string;
+  phoneNumber: string;
   dutyDateScore: number;
   assignmentScore: number;
 }
@@ -23,6 +25,8 @@ const MilitiaEditDialog = styled(({ militia, onExit = CONFIG.EMPTY_FUNCTION, ...
   } = useForm<Inputs>({
     defaultValues: {
       name: militia.name,
+      fullName: militia.fullName ?? "",
+      phoneNumber: militia.phoneNumber ?? "",
       dutyDateScore: militia.dutyDateScore,
       assignmentScore: militia.assignmentScore,
     },
@@ -59,6 +63,16 @@ const MilitiaEditDialog = styled(({ militia, onExit = CONFIG.EMPTY_FUNCTION, ...
           name="assignmentScore"
           rules={{ required: true }}
           render={({ field }) => <TextField {...field} label="Điểm coi cổng" error={!!formState.errors.assignmentScore} type="number" margin="dense" />}
+        />
+        <Controller
+          control={control}
+          name="fullName"
+          render={({ field }) => <TextField {...field} label="Họ Tên" error={!!formState.errors.fullName} margin="dense" />}
+        />
+        <Controller
+          control={control}
+          name="phoneNumber"
+          render={({ field }) => <TextField {...field} label="Sđt" error={!!formState.errors.phoneNumber} margin="dense" />}
         />
       </DialogContent>
       <DialogActions>

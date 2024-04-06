@@ -4,6 +4,8 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
 type Inputs = {
   name: string;
+  fullName: string;
+  phoneNumber: string;
 }
 
 const MilitiaCreateForm = styled((props: BoxProps<"form">) => {
@@ -29,6 +31,16 @@ const MilitiaCreateForm = styled((props: BoxProps<"form">) => {
         name="name"
         rules={{ required: true }}
         render={({ field }) => <TextField {...field} label="Name" error={!!errors.name} />}
+      />
+      <Controller
+        control={control}
+        name="fullName"
+        render={({ field }) => <TextField {...field} label="Full Name" error={!!errors.fullName} />}
+      />
+      <Controller
+        control={control}
+        name="phoneNumber"
+        render={({ field }) => <TextField {...field} label="Phone Number" error={!!errors.phoneNumber} />}
       />
       <Button type="submit" disabled={isLoading || !isValid}>Create</Button>
     </Box>
