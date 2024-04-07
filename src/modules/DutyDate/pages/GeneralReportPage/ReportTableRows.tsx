@@ -53,19 +53,19 @@ function ReportTableRows({ dutyDate, ...props }: ReportTableRowsProps) {
           result[task.id] = [];
         });
       });
+
+      dutyDate.shifts.forEach(shift => {
+        result[shift.taskId].push(militiaMap[shift.militiaId]);
+        militiaCheck.add(shift.militiaId);
+      });
+
+      militias.forEach(militia => {
+        if (!militiaCheck.has(militia.id)) {
+          result[0].push(militia);
+          militiaCheck.add(militia.id);
+        }
+      });
     }
-
-    dutyDate.shifts.forEach(shift => {
-      result[shift.taskId].push(militiaMap[shift.militiaId]);
-      militiaCheck.add(shift.militiaId);
-    });
-
-    militias.forEach(militia => {
-      if (!militiaCheck.has(militia.id)) {
-        result[0].push(militia);
-        militiaCheck.add(militia.id);
-      }
-    });
 
     return result;
   }, [militias, dutyDate.shifts, militiaMap, missions]);
@@ -89,7 +89,7 @@ function ReportTableRows({ dutyDate, ...props }: ReportTableRowsProps) {
         (mission, missionIndex) => mission.tasks.map(
           (task, taskIndex) => taskMilitiaMap[task.id].map(
             (militia, militiaIndex) => (
-              <TableRow key={militia.id}>
+              militia && <TableRow key={militia.id}>
                 {missionIndex === 0 && taskIndex === 0 && militiaIndex === 0 && <TableCell rowSpan={militias.length}>{getDateString(dutyDate.date)}</TableCell>}
                 {militiaIndex === 0 && <TableCell rowSpan={taskMilitiaMap[task.id].length}>{minutesToHourString(task.startMinute)} - {minutesToHourString(task.endMinute)}</TableCell>}
                 <TableCell>{militia.fullName}</TableCell>
