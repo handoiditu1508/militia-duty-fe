@@ -91,7 +91,7 @@ function ReportTableRows({ dutyDate, ...props }: ReportTableRowsProps) {
             (militia, militiaIndex) => (
               militia && <TableRow key={militia.id}>
                 {missionIndex === 0 && taskIndex === 0 && militiaIndex === 0 && <TableCell rowSpan={militias.length}>{getDateString(dutyDate.date)}</TableCell>}
-                {militiaIndex === 0 && <TableCell rowSpan={taskMilitiaMap[task.id].length}>{minutesToHourString(task.startMinute)} - {minutesToHourString(task.endMinute)}</TableCell>}
+                {militiaIndex === 0 && <TableCell rowSpan={taskMilitiaMap[task.id].length}>{minutesToHourString(task.startMinute)} - {minutesToHourString(task.endMinute)} {mission.name}</TableCell>}
                 <TableCell>{militia.fullName}</TableCell>
                 <TableCell>{"\u00A0"}{militia.phoneNumber}</TableCell>
               </TableRow>
